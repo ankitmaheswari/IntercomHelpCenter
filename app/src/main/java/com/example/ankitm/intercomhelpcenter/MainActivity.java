@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        registerIntercomUser();
     }
 
     public void showHelpCenter(View view) {
@@ -26,5 +27,11 @@ public class MainActivity extends AppCompatActivity {
 
         //open intercom messenger
         Intercom.client().displayMessenger();
+    }
+    
+    private void registerIntercomUser() {
+        Registration registration = Registration.create()
+                .withUserId("9958954682");
+        Intercom.client().registerIdentifiedUser(registration);
     }
 }
